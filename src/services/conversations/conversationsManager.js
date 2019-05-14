@@ -29,6 +29,9 @@ module.exports = {
             
             conversation.dataValues.messages = await conversationProvider.getConversationMessages(data.conversationId)
                    
+            if(conversation.dataValues.messages.count === 0) {
+                callback(null, conversation)
+            }
 
             for (let i = 0; i < conversation.dataValues.messages.count; i++) {
                 userManager.getProfile(conversation.dataValues.messages.rows[i].sender_id , async (err, user) => {
