@@ -11,9 +11,7 @@ Clone source code
 
 Cd simple-chat-app
 
-docker build -t simplechatapp:1 .
-
-docker run -it -p 3000:3000 --name="simple_chat_app" simplechatapp:1 
+docker-compose up --build
 
 Now you can use it with simple GUI localhost:3000/register
 
